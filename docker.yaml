@@ -1,24 +1,19 @@
-# Run CI/CD jobs in Docker images:
-# https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
 version: v1.0
-name: Hello Semaphore
+name: Docker
 agent:
   machine:
     type: e1-standard-2
-  containers:
-    - name: main
-      image: semaphoreci/node:12.4.0
-    - name: cache
-      image: redis:5.0
+    os_image: ubuntu1804
 blocks:
-  - name: Docker-based example
+  - name: Docker
     task:
-      jobs:
-      - name: Hello
+      prologue:
         commands:
-          - node -p '"evol".split("").reverse().join("")'
-          - apt-get -y update && apt-get install redis-tools
-          - redis-cli -h cache "KEYS *"
-          # Uncomment the following line to pull your code,
-          # then proceed by adding your custom commands:
-          #- checkout
+          - docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
+      jobs:
+        - name: Build and Push
+          commands:
+            - 'docker build . --file Dockerfile --tag $DOCKER_IMAGE:$DOCKER_TAG'
+            - 'docker push $SEMAPHORE_PROJECT_NAME:$SEMAPHORE_GIT_BRANCH-$SEMAPHORE_GIT_SHA'
+      secrets:
+        - name: docker-secrets
