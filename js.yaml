@@ -1,18 +1,36 @@
-# For more Node.js and JavaScript information and examples, see
-# https://docs.semaphoreci.com/article/82-language-javascript-and-nodejs
 version: v1.0
-name: Hello Semaphore
+name: Node JS
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: Node.js example
+  - name: Install dependencies
     task:
+      prologue:
+        commands:
+          - sem-version node 8
+          - checkout
       jobs:
-        - name: Run some code
+        - name: npm install
           commands:
-            - node -p '"evol".split("").reverse().join("")'
-            # Uncomment the following line to pull your code,
-            # then proceed by adding your custom commands:
-            #- checkout
+            - npm install
+      epilogue:
+        on_pass:
+          commands:
+            - cache store
+  - name: Test
+    task:
+      prologue:
+        commands:
+          - sem-version node 8
+          - checkout
+          - cache restore
+          - npm install
+          - node --version
+          - npm --version
+          - nvm --version
+      jobs:
+        - name: npm test
+          commands:
+            - npm test
