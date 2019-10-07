@@ -1,18 +1,40 @@
-# For more Elixir information and examples, see:
-# https://docs.semaphoreci.com/article/87-language-elixir
 version: v1.0
-name: Hello Semaphore
+name: Elixir
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: Elixir example
+  - name: Install dependencies
     task:
-      jobs:
-      - name: Run some code
+      prologue:
         commands:
-          - elixir 'IO.puts "Hello world!"'
-          # Uncomment the following line to pull your code,
-          # then proceed by adding your custom commands:
-          #- checkout
+          - sem-version elixir 1.9
+          - checkout
+      epilogue:
+        on_pass:
+          commands:
+            - cache store
+      jobs:
+        - name: mix deps.get
+          commands:
+            - mix deps.get
+      env_vars:
+        - name: MIX_ENV
+          value: test
+  - name: Tests
+    task:
+      prologue:
+        commands:
+          - sem-version elixir 1.9
+          - mix local.rebar --force
+          - checkout
+          - cache restore
+          - mix deps.get
+      jobs:
+        - name: mix
+          commands:
+            - mix test
+      env_vars:
+        - name: MIX_ENV
+          value: test
