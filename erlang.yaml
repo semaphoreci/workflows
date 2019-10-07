@@ -1,0 +1,20 @@
+# For more Erlang information and examples, see:
+# https://docs.semaphoreci.com/article/110-language-erlang
+version: v1.0
+name: Hello Semaphore
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Erlang example
+    task:
+      jobs:
+      - name: Run code
+        commands:
+          - sem-version erlang 21
+          - kerl status
+          - erl -noshell -eval 'io:fwrite("Hello from Semaphore!\n"), init:stop().'
+          # Uncomment the following line to pull your code,
+          # then proceed by adding your custom commands:
+          #- checkout

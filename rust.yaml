@@ -1,0 +1,21 @@
+# For more Rust information and examples, see:
+# https://docs.semaphoreci.com/article/145-language-rust
+version: v1.0
+name: Hello Semaphore
+agent:
+  machine:
+    type: e1-standard-2
+  containers:
+    - name: main
+      image: semaphoreci/rust:1.35
+blocks:
+  - name: Rust example
+    task:
+      jobs:
+      - name: Compile and run code
+        commands:
+          - printf 'fn main() { println!("Hello World!"); }' > hello.rs && rustc hello.rs
+          - ./hello
+          # Uncomment the following line to pull your code,
+          # then proceed by adding your custom commands:
+          #- checkout

@@ -1,0 +1,19 @@
+# For more Scala information and examples, see:
+# https://docs.semaphoreci.com/article/111-language-scala
+version: v1.0
+name: Hello Semaphore
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Scala example
+    task:
+      jobs:
+      - name: Run some code
+        commands:
+          - sem-version scala 2.12
+          - scala -e 'println("hello")'
+          # Uncomment the following line to pull your code,
+          # then proceed by adding your custom commands:
+          #- checkout
