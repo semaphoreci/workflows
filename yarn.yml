@@ -12,10 +12,9 @@ blocks:
           - sem-version node 8
           - checkout
       jobs:
-        - name: npm install
+        - name: yarn install
           commands:
-            - npm run build --if-present
-            - npm install
+            - yarn install
       epilogue:
         on_pass:
           commands:
@@ -27,11 +26,8 @@ blocks:
           - sem-version node 8
           - checkout
           - cache restore
-          - npm install
-          - node --version
-          - npm --version
-          - nvm --version
+          - yarn install
       jobs:
-        - name: npm test
+        - name: yarn test
           commands:
-            - npm test
+            - yarn test
