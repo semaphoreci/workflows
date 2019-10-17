@@ -1,0 +1,57 @@
+version: v1.0
+name: "Elixir Phoenix example CI pipeline on Semaphore"
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Set up
+    task:
+      jobs:
+      - name: compile and build plts
+        commands:
+          - checkout
+          - bin/setup_ci_elixir
+          - sem-version elixir 1.8.1
+          - cache restore
+          - cache restore dialyzer-plt
+          - mix deps.get
+          - mix do compile, dialyzer --plt
+          - MIX_ENV=test mix compile
+          - cache store
+          - cache store dialyzer-plt priv/plts/
+  - name: Analyze code
+    task:
+      prologue:
+        commands:
+        - checkout
+        - bin/setup_ci_elixir
+        - sem-version elixir 1.8.1
+        - cache restore
+        - cache restore dialyzer-plt
+      jobs:
+      - name: credo
+        commands:
+        - mix credo -a
+      - name: dialyzer
+        commands:
+        - mix dialyzer --halt-exit-status --no-compile
+      - name: formatter
+        commands:
+        - mix format --check-formatted
+  - name: Run tests
+    task:
+      prologue:
+        commands:
+        - checkout
+        - bin/setup_ci_elixir
+        - sem-version elixir 1.8.1
+        - cache restore
+      jobs:
+      - name: ex_unit
+        env_vars:
+        - name: DATABASE_URL
+          value: "ecto://postgres:@0.0.0.0:5432/sema_test"
+        commands:
+        - sem-service start postgres
+        - mix test
