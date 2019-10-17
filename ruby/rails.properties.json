@@ -1,0 +1,9 @@
+{
+  "title": "Test Rails app",
+  "features": [
+    "Code checkout",
+    "Installing and caching dependencies",
+    "Code scan with Rubocop and Brakeman",
+    "RSpec suite run"
+  ]
+}
