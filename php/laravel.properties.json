@@ -1,0 +1,9 @@
+{
+  "title": "Test Laravel app",
+  "features": [
+    "Code analysis with PHP Mess Detector, Code Sniffer and Copy Detector",
+    "PHPUnit unit tests",
+    "Browser tests via Laravel Dusk",
+    "Security Tests via Sensiolabs checker"
+  ]
+}
