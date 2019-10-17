@@ -1,0 +1,8 @@
+{
+  "title": "Test with YARN",
+  "features": [
+    "Code checkout",
+    "Installing and caching dependencies",
+    "Test suite run with YARN"
+  ]
+}

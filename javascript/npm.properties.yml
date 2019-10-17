@@ -1,0 +1,8 @@
+{
+  "title": "Test with NPM",
+  "features": [
+    "Code checkout",
+    "Installing and caching dependencies",
+    "Test suite run with NPM"
+  ]
+}
