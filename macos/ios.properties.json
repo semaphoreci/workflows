@@ -1,0 +1,8 @@
+{
+  "title": "Test iOS app with Fastlane",
+  "features": [
+    "Code signing for iOS projects",
+    "TestFlight integration",
+    "HockeyApp integration"
+  ]
+}
