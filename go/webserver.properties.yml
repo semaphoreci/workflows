@@ -1,0 +1,8 @@
+{
+  "title": "Test Go app",
+  "features": [
+    "Build Go project cache the executable",
+    "Scan the code for style",
+    "Run Unit and Integration tests"
+  ]
+}
