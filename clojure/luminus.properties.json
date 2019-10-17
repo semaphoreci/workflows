@@ -1,0 +1,8 @@
+{
+  "title": "Test Luminus app",
+  "features": [
+    "Install dependencies using a cache for faster builds",
+    "Run the unit tests",
+    "Package the app as a single, standalone jar file"
+  ]
+}
