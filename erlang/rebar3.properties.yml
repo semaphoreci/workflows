@@ -1,0 +1,6 @@
+{
+  "title": "Test with Rebar3",
+  "features": [
+    "Build and test Erlang with Rebar3"
+  ]
+}
