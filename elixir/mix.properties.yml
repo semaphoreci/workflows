@@ -1,5 +1,6 @@
 {
   "title": "Test a Mix project",
+  "preview": "",
   "features": [
     "Code checkout",
     "Install dependencies with Mix",

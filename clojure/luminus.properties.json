@@ -1,5 +1,6 @@
 {
   "title": "Test Luminus app",
+  "preview": "https://raw.githubusercontent.com/semaphoreci-demos/semaphore-demo-clojure-luminus/master/.semaphore/semaphore-demo-clojure-luminus-cicd.png",
   "features": [
     "Install dependencies using a cache for faster builds",
     "Run the unit tests",
