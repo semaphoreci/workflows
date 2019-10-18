@@ -1,6 +1,6 @@
 {
   "title": "Test a Mix project",
-  "preview": "",
+  "preview": "https://github.com/semaphoreci/workflows/blob/master/previews/Screen%20Shot%202019-10-18%20at%208.31.44%20AM.png?raw=true",
   "features": [
     "Code checkout",
     "Install dependencies with Mix",
