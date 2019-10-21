@@ -1,5 +1,6 @@
 {
   "title": "Test iOS app with Fastlane",
+  "category": "MacOS",
   "features": [
     "Code signing for iOS projects",
     "TestFlight integration",

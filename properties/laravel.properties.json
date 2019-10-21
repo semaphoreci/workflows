@@ -1,9 +1,11 @@
 {
   "title": "Test Laravel app",
+  "category": "PHP",
   "features": [
     "Code analysis with PHP Mess Detector, Code Sniffer and Copy Detector",
     "PHPUnit unit tests",
     "Browser tests via Laravel Dusk",
     "Security Tests via Sensiolabs checker"
-  ]
+  ],
+  "template_path": "templates/laravel.yml"
 }

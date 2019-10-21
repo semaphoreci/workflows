@@ -1,8 +1,10 @@
 {
   "title": "Test gem with RSpec",
+  "category": "Ruby",
   "features": [
     "Code checkout",
     "Installing and caching dependencies",
     "Run RSpec suite"
-  ]
+  ],
+  "template_path": "templates/rspec.yml"
 }

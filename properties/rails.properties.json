@@ -1,10 +1,12 @@
 {
   "title": "Test Rails app",
+  "category": "Ruby",
   "features": [
     "Code checkout",
     "Installing and caching dependencies",
     "Code scan with Rubocop and Brakeman",
     "RSpec suite run"
   ],
-  "preview": "https://github.com/semaphoreci-demos/semaphore-demo-ruby-rails/raw/master/public/ci-pipeline.png"
+  "preview": "https://github.com/semaphoreci-demos/semaphore-demo-ruby-rails/raw/master/public/ci-pipeline.png",
+  "template_path": "templates/rails.yml"
 }

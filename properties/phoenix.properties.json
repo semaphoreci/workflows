@@ -1,10 +1,12 @@
 {
   "title": "Test Phoenix app",
+  "category": "Elixir",
   "features": [
     "Code checkout",
     "Elixir 1.8.1 (you can change this in the next step)",
     "Installing and caching dependencies",
     "Static analysis via dialyzer and credo",
     "Test suite run with Mix"
-  ]
+  ],
+  "template_path": "templates/phoenix.yml"
 }

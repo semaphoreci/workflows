@@ -1,0 +1,11 @@
+{
+  "title": "Test Luminus app",
+  "category": "Clojure",
+  "features": [
+    "Install dependencies using a cache for faster builds",
+    "Run the unit tests",
+    "Package the app as a single, standalone jar file"
+  ],
+  "preview": "https://raw.githubusercontent.com/semaphoreci-demos/semaphore-demo-clojure-luminus/master/.semaphore/semaphore-demo-clojure-luminus-cicd.png",
+  "template_path": "templates/luminus.yml"
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Run sequence of commands",
+  "category": "Start minimally",
+  "features": [
+    "Ubuntu 18.04 environment"
+    "Code checkout",
+    "Three simple bash commands"
+  ],
+  "template_path": "templates/simple.yml"
+}

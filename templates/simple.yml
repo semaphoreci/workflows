@@ -1,0 +1,17 @@
+version: v1.0
+name: Barebone Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Barebone Block
+    task:
+      jobs:
+        - name: cowsay
+          commands:
+            - checkout
+            - sudo apt-get install cowsay
+            - >-
+              cowsay "Congrats! You've just run your first command on Semaphore.
+              Now go ahead, and tweak your workflow to do something useful."

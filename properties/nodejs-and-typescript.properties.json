@@ -1,10 +1,12 @@
 {
   "title": "Test Node.js and TypeScript",
+  "category": "JavaScript",
   "features": [
     "Install and cache all NPM dependencies",
     "Run tslint to check code style",
     "Run Jest unit tests",
     "E2E tests run via Jest",
     "E2E tests run via Cypress"
-  ]
+  ],
+  "template_path": "templates/nodejs-and-typescript.yml"
 }
